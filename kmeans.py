@@ -12,26 +12,26 @@ class KMC():
         self.plot_steps = plot_steps
 
         # list of sample indices for each cluster
-        self.clusters = [[] for _ in range(self.K)]
+        self.clusters = [[] for _ in range(self.K)]           #creating an empty cluster
         # the centers (mean feature vector) for each cluster
-        self.centroids = []
+        self.centroids = []     #creating an empty list of centroids
 
         
     def predict(self,X):
         self.X=X
         self.n_samples,self.n_features=X.shape
         #initialize centroids
-        centroids_idxs=np.random.choice(self.n_samples,self.K,replace=False)
+        centroids_idxs=np.random.choice(self.n_samples,self.K,replace=False)    #randomly initializing the centroids
         self.centroids=[self.X[i] for i in centroids_idxs]
         #create clusters
         for _ in range(self.n_iters):
-            self.clusters=self._create_clusters(self.centroids)
+            self.clusters=self._create_clusters(self.centroids)        #calling the function of creating clusters usinmg centroids
             if self.plot_steps:
                 self.plot()
             #calculate new centroids from the clusters
             old_centroids=self.centroids
-            self.centroids=self.get_centroids(self.clusters)
-            if self._is_converged(old_centroids,self.centroids):
+            self.centroids=self.get_centroids(self.clusters)    #getting updated centroids by averaging
+            if self._is_converged(old_centroids,self.centroids):   #checking to see if the sum of the distances between new and old centroids have converged to zero
                 break
             if self.plot_steps:
                 self.plot()
