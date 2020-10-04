@@ -5,7 +5,7 @@ the eleborative line of codes of the algorithm.
 
 The second file 'kmeans test.py' is the test file where data is created using make_blobs technique and clustered into groups by importing the class from 'kmeans.py' file.
 
-Below are the scatter plots from random initialization of centroids to the final clusters
+Below are the scatter plots from random initialization of centroids to the final clusters:
 
 ![pic1](https://user-images.githubusercontent.com/62296944/95012045-fc9a7d00-0652-11eb-877d-5c85af9890f1.png)
 ![pic2](https://user-images.githubusercontent.com/62296944/95012075-205dc300-0653-11eb-91ed-38949ee72501.png)
